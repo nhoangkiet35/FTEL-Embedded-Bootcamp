@@ -1,0 +1,10 @@
+1662. Check If Two String Arrays are Equivalent
+
+Mục tiêu:
+Hàm trả về true nếu hai mảng này biểu diễn cùng một chuỗi, và false nếu ngược lại.
+
+Hướng làm bài:
+- So sánh từng ký tự bằng 2 pointers
+- Không cần nối chuỗi
+- Di chuyển pointer khi hết từng phần tử string
+- Cuối cùng phải đảm bảo cả 2 đều duyệt hết
