@@ -47,7 +47,7 @@ uint8_t cmd_line_parser(cmd_line_t *cmd_table, uint8_t *command)
         {
 
             /* perform respective function */
-            cmd_table[index_check].func(command);
+            cmd_table[index_check].func(p_command); /* pass the rest of the command as argument */
 
             /* return success */
             return CMD_SUCCESS;
