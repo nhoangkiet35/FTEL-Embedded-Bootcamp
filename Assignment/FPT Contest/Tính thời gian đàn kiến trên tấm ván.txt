@@ -1,0 +1,55 @@
+Tính thời gian đàn kiến trên tấm ván
+Chúng ta có một tấm ván gỗ dài n đơn vị. Một số con kiến di chuyển trên đó, mỗi con đi với tốc độ 1 đơn vị/giây. Một số đi sang trái, số khác đi sang phải.
+Khi hai con kiến đi ngược chiều gặp nhau, chúng sẽ đổi hướng mà không mất thời gian.
+Khi một con kiến chạm đầu ván, nó sẽ rơi khỏi ngay lập tức.
+
+Hãy xác định thời điểm mà con kiến cuối cùng rơi khỏi tấm ván.
+
+Mô tả test case:
+- Dòng 1: số nguyên n (độ dài tấm ván)
+- Dòng 2: Lần lượt là vị trí các con kiến đi từ phải sang trái
+- Dòng 3: Lần lượt là vị trí các con kiến đi từ trái sang phải
+
+Kết quả: Thời điểm con kiến cuối cùng rơi khỏi tấm ván.
+
+Ví dụ:
+4
+4,3
+0,1
+Kết quả: 4
+
+---
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// === ONLY CODE WITHIN THE DESIGNATED AREA . DO NOT MODIFY OTHER PARTS ===
+int lastAntFall(int n, vector<int>& right2left, vector<int>& left2right) {
+    // Start your code here
+    return 0;
+}
+// === DO NOT MODIFY OTHER PARTS ===
+
+vector<int> parseLine(const string& line) {
+    vector<int> values;
+    stringstream ss(line);
+    int x;
+    while (ss >> x) values.push_back(x);
+    return values;
+}
+
+int main() {
+    string line;
+    if (!getline(cin, line)) return 0;
+    int n = stoi(line);
+
+    string leftLine, rightLine;
+    if (!getline(cin, leftLine)) leftLine = "";
+    if (!getline(cin, rightLine)) rightLine = "";
+
+    vector<int> left = parseLine(leftLine);
+    vector<int> right = parseLine(rightLine);
+
+    cout << "\n__JUDGE_RESULT__\n" << lastAntFall(n, left, right);
+    return 0;
+}

@@ -1,0 +1,112 @@
+Tìm danh sách dự thi
+Bạn có danh sách dự thi của các thí sinh trong trường cho 4 môn: Toán, Văn, Anh, Vật lý. Mỗi môn được quản lý bằng một Linked List.
+
+Mỗi Node trong Linked List có các thuộc tính:
+- name: tên thí sinh (ví dụ: "NguyenVanA")
+- subject: tên môn ("toan", "van", "anh", "vatly")
+- className: lớp (ký tự 'A', 'B', 'C', 'D')
+- next: con trỏ đến Node tiếp theo
+
+Cho 4 Linked List tương ứng với 4 môn:
+- mathList (Toán)
+- literatureList (Văn)
+- englishList (Anh)
+- physicsList (Vật lý)
+
+Hãy gộp (merge) 4 Linked List này thành một Linked List duy nhất.
+
+Quy tắc:
+1. Thứ tự gộp linked list phải là: mathList → literatureList → englishList → physicsList
+2. Giữ nguyên thứ tự xuất hiện của thí sinh trong từng danh sách.
+3. Tái sử dụng các Node đã có, không cần tạo Node mới.
+
+Mô tả test case:
+- Dòng đầu: Số lượng thí sinh của từng môn lần lượt là Toán-Văn-Anh-Vật Lý.
+- Các dòng tiếp theo là danh sách thí sinh theo từng môn.
+Kết quả:
+- Danh sách thí sinh theo định dạng [Tên thí sinh]-[Môn thi]-[Lớp]
+
+Ví dụ:
+2 2 1 2
+Bao A
+Cuong B
+Bao A
+Dung C
+Bao A
+Bao A
+Cuong B
+
+Kết quả:
+Bao-toan-A
+Cuong-toan-B
+Bao-van-A
+Dung-van-C
+Bao-anh-A
+Bao-vatly-A
+Cuong-vatly-B
+
+---
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Student {
+    string name;
+    string subject;
+    char className;
+    Student* next;
+};
+
+// === ONLY CODE WITHIN THE DESIGNATED AREA DO NOT MODIFY OTHER PARTS ===
+
+Student* mergeExamLists(Student* mathList, Student* literatureList, Student* englishList, Student* physicsList) {
+    // Start your code here
+    return 0;
+}
+// === DO NOT MODIFY OTHER PARTS ===
+
+Student* makeNode(const string& name, const string& subject, char className) {
+    return new Student{name, subject, className, nullptr};
+}
+
+void appendNode(Student*& head, Student*& tail, Student* node) {
+    if (!head) head = tail = node;
+    else { tail->next = node; tail = node; }
+}
+
+void buildList(int count, const string& subject, Student*& head, Student*& tail) {
+    for (int i = 0; i < count; i++) {
+        string name;
+        char className;
+        if (!(cin >> name >> className)) return;
+        appendNode(head, tail, makeNode(name, subject, className));
+    }
+}
+
+void printList(Student* head) {
+    while (head) {
+        cout << head->name << "-" << head->subject << "-" << head->className;
+        if (head->next) cout << "\n";
+        head = head->next;
+    }
+}
+
+int main() {
+    int m, l, e, p;
+    if (!(cin >> m >> l >> e >> p)) return 0;
+
+    Student *mathHead = nullptr, *mathTail = nullptr;
+    Student *litHead = nullptr, *litTail = nullptr;
+    Student *engHead = nullptr, *engTail = nullptr;
+    Student *phyHead = nullptr, *phyTail = nullptr;
+
+    buildList(m, "toan", mathHead, mathTail);
+    buildList(l, "van", litHead, litTail);
+    buildList(e, "anh", engHead, engTail);
+    buildList(p, "vatly", phyHead, phyTail);
+
+    Student* res = mergeExamLists(mathHead, litHead, engHead, phyHead);
+    cout << "\n__JUDGE_RESULT__\n";
+    printList(res);
+    return 0;
+}

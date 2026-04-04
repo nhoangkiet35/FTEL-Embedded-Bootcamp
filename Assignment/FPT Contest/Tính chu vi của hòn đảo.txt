@@ -1,0 +1,38 @@
+Tính chu vi của hòn đảo
+Cho một mảng 2 chiều grid có kích thước row × col đại diện cho một bản đồ:
+- grid[i][j] = 1 → ô đất (land)
+- grid[i][j] = 0 → ô nước (water)
+Trong bản đồ chỉ có duy nhất 1 hòn đảo, tính chu vi của hòn đảo đó.
+(Hòn đảo được bao quanh hoàn toàn bởi nước.)
+
+Mô tả test case
+- Dòng 1: row col
+- Các dòng tiếp theo: mỗi dòng gồm col giá trị 0 hoặc 1
+Kết quả: Một số nguyên là chu vi của hòn đảo.
+
+Ví dụ:
+grid =[[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+Kết quả: 16
+
+---
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// === ONLY CODE WITHIN THE DESIGNATED AREA . DO NOT MODIFY OTHER PARTS ===
+int islandPerimeter(vector<vector<int>>& grid) {
+    // Start your code here
+    return 0;
+}
+// === DO NOT MODIFY OTHER PARTS ===
+
+int main() {
+    int rows, cols;
+    cin >> rows >> cols;
+    vector<vector<int>> grid(rows, vector<int>(cols));
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            cin >> grid[i][j];
+    cout << "\n__JUDGE_RESULT__\n" << islandPerimeter(grid);
+    return 0;
+}
