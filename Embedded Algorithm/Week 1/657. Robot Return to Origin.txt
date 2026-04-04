@@ -1,0 +1,10 @@
+657. Robot Return to Origin
+
+Mục tiêu:
+Biểu diễn chuyển động trên mặt phẳng 2D (x, y), robot quay trở lại điểm xuất phát sau khi hoàn thành tất cả các bước di chuyển.
+
+Hướng làm bài:
+- Không cần lưu toàn bộ đường đi chỉ cần vị trí cuối
+- Chuỗi rỗng vẫn ở (0,0) return true
+- Chuỗi dài không ảnh hưởng vì chỉ cộng trừ đơn giản
+- Ký tự không hợp lệ có thể reject
