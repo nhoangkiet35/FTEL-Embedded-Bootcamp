@@ -38,15 +38,9 @@ cmd_line_t cmd_table[] = {
 3. So sánh với table
 4. Gọi handler tương ứng
 
-Ưu điểm:
-
-- Dễ mở rộng (chỉ cần thêm vào table)
-- Code clean, không cần if-else dài dòng
-- Rất phổ biến trong firmware
-
 ### b. Cách kiểm thử
 
-Project sử dụng **Unit Test** để kiểm tra logic parser.
+Project sử dụng **Unit Test** để kiểm tra từng đơn vị nhỏ nhất của logic parser.
 
 #### Các test case
 
@@ -60,18 +54,21 @@ Project sử dụng **Unit Test** để kiểm tra logic parser.
 
 #### Build & Run
 
-- **Cách 1: Dùng GCC (đơn giản)**
+- **Cách 1: Dùng Unity Test (tự động)**
 
   ```bash
   gcc cmd_line.c test_cmd_line.c ../lib/unity.c -o test
   test
   ```
+
 - **Cách 2: Chạy demo main (thủ công)**
 
   ```bash
   gcc cmd_line.c main.c -o main
   main
   ```
+
+> Lưu ý: Nhớ cài đặt MSYS2 sử dụng gcc/g++ để build & debug trên VSCode
 
 ### c. Demo input/output
 
@@ -89,13 +86,10 @@ abc
 Simple CLI (type 'exit' to quit)
 > help
 Available commands: help, led
-
 > led on
 LED command with arg: led on
-
 > abc
 Command not found
-
 > exit
 ```
 
