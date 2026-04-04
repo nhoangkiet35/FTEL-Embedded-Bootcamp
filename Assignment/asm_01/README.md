@@ -63,10 +63,10 @@ Project sử dụng **Unit Test** để kiểm tra logic parser.
 - **Cách 1: Dùng GCC (đơn giản)**
 
   ```bash
-  gcc cmd_line.c test_cmd_line.c unity.c -o test
+  gcc cmd_line.c test_cmd_line.c ../lib/unity.c -o test
   test
   ```
-- **Cách 2: Test thủ công (chạy main)**
+- **Cách 2: Chạy demo main (thủ công)**
 
   ```bash
   gcc cmd_line.c main.c -o main
