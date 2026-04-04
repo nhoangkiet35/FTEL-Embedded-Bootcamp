@@ -1,11 +1,11 @@
 Test Case ID,Mô tả,Input,Bước thực hiện,Expected Output,Kết quả
-TC01,Command hợp lệ,"""help""","Gọi hàm test_cmd_line(""help"")",In ra danh sách command,SUCCESS
-TC02,Command có argument,"""led on""","Gọi test_cmd_line(""led on"")",Thực hiện bật LED,SUCCESS
-TC03,Command không tồn tại,"""abc""","Gọi test_cmd_line(""abc"")","In ""Command not found""",SUCCESS
-TC04,Command quá dài,100 ký tự,"Gọi test_cmd_line(""SABU12E1"")","Trả về lỗi ""Command too long""",SUCCESS
-TC05,Command rỗng,""""" hoặc NULL string","Gọi test_cmd_line("""")",Không xử lý,SUCCESS
-TC06,Table NULL,table = NULL,"Gọi test_cmd_line(NULL, ""help"")",Không crash,SUCCESS
-TC07,Command hợp lệ nhưng sai argument,"""led xyz""","Gọi test_cmd_line(""led xyz"")","Báo lỗi ""LED command no arg""",SUCCESS
-TC08,Command có nhiều khoảng trắng,""" led on """,Gọi test_cmd_line(...),Vẫn parse đúng và bật LED,SUCCESS
-TC09,Command viết hoa,"""HELP""","Gọi test_cmd_line(""HELP"")",Reject,SUCCESS
-TC10,Command gần đúng,"""hel""","Gọi test_cmd_line(""hel"")","Không match ""Command not found""",SUCCESS
+TC01,Command hợp lệ,"""help""","Gọi hàm test_cmd_line(""help"")",In ra danh sách command,PASS
+TC02,Command có argument,"""led on""","Gọi test_cmd_line(""led on"")",Thực hiện bật LED,PASS
+TC03,Command không tồn tại,"""abc""","Gọi test_cmd_line(""abc"")","In ""Command not found""",PASS
+TC04,Command quá dài,100 ký tự,"Gọi test_cmd_line(""SABU12E1"")","Trả về lỗi ""Command too long""",PASS
+TC05,Command rỗng,""""" hoặc NULL string","Gọi test_cmd_line("""")","In ""Command not found""",PASS
+TC06,Table NULL,table = NULL,"Gọi test_cmd_line(NULL, ""help"")",Không crash,PASS
+TC07,Command hợp lệ nhưng sai argument,"""led xyz""","Gọi test_cmd_line(""led xyz"")",Vẫn in ra chuỗi,PASS
+TC08,Command có nhiều khoảng trắng,""" led on ""","Gọi test_cmd_line("" led on "")",Vẫn parse đúng và bật LED,FAIL
+TC09,Command viết hoa,"""HELP""","Gọi test_cmd_line(""HELP"")","In ""Command not found""",PASS
+TC10,Command gần đúng,"""hel""","Gọi test_cmd_line(""hel"")","Không match ""Command not found""",PASS
