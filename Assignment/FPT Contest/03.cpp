@@ -5,7 +5,12 @@ using namespace std;
 int lastAntFall(int n, vector<int> &right2left, vector<int> &left2right)
 {
     // Start your code here
-    return 0;
+    int maxTime = 0;
+    for (int pos : right2left)
+        maxTime = max(maxTime, pos);
+    for (int pos : left2right)
+        maxTime = max(maxTime, n - pos);
+    return maxTime;
 }
 
 // === DO NOT MODIFY OTHER PARTS ===

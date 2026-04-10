@@ -13,7 +13,27 @@ struct Student
 Student *mergeExamLists(Student *mathList, Student *literatureList, Student *englishList, Student *physicsList)
 {
     // Start your code here
-    return 0;
+    Student *head = nullptr;
+    Student *tail = nullptr;
+
+    auto attach = [&](Student *list)
+    {
+        if (!list)
+            return;
+        if (!head)
+            head = tail = list;
+        else
+            tail->next = list;
+
+        while (tail->next)
+            tail = tail->next;
+    };
+    attach(mathList);
+    attach(literatureList);
+    attach(englishList);
+    attach(physicsList);
+
+    return head;
 }
 
 // === DO NOT MODIFY OTHER PARTS ===
