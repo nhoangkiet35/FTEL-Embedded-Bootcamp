@@ -22,22 +22,28 @@ uint8_t cmd_line_parser(cmd_line_t *cmd_table, uint8_t *command)
     }
 
     /* get cmd */
+    /* skip leading spaces/tabs */
+    while (*p_command == ' ' || *p_command == '\t')
+        p_command++;
+
     while (*p_command)
     {
         if (*p_command == ' ' || *p_command == '\r' || *p_command == '\n')
         {
-            cmd[cmd_index] = 0;
             break;
         }
-        else
+
+        /* reserve space for terminating NUL */
+        if (cmd_index >= (MAX_CMD_SIZE - 1))
         {
-            cmd[cmd_index++] = *(p_command++);
-            if (cmd_index >= MAX_CMD_SIZE)
-            {
-                return CMD_TOO_LONG;
-            }
+            return CMD_TOO_LONG;
         }
+
+        cmd[cmd_index++] = *(p_command++);
     }
+
+    /* ensure null-termination */
+    cmd[cmd_index] = 0;
 
     /* find respective command in command table */
     while (cmd_table[index_check].cmd)
@@ -47,6 +53,9 @@ uint8_t cmd_line_parser(cmd_line_t *cmd_table, uint8_t *command)
         {
 
             /* perform respective function */
+            /* skip leading separators before passing args */
+            while (*p_command == ' ' || *p_command == '\t' || *p_command == '\r' || *p_command == '\n')
+                p_command++;
             cmd_table[index_check].func(p_command); /* pass the rest of the command as argument */
 
             /* return success */
