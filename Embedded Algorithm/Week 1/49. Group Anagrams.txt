@@ -1,0 +1,9 @@
+49. Group Anagrams
+
+Mục tiêu: 
+Nhóm các string sao cho những string là anagram (thứ tự chữ bị đảo) nằm chung 1 nhóm.
+
+Hướng làm bài:
+- Với mỗi string tạo ra key đại diện cho nó dựa trên bảng ASCII.
+- Dùng map để lưu các string vào trong mảng có cùng key.
+- Lấy tất cả value của map ra return.
